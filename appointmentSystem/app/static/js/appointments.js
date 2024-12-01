@@ -3,6 +3,17 @@
  * @module appointments
  */
 function initializeAppointments() {
+    // 載入服務項目
+    loadServices();
+    
+    // 生成時間選項
+    generateTimeOptions();
+        
+    // 監聽日期變更
+    document.querySelector('input[name="appointmentDate"]').addEventListener('change', checkAvailability);
+        
+    // 表單驗證
+    initFormValidation();
     // 防止重複初始化
     if (window.appointmentsInitialized) return;
 
