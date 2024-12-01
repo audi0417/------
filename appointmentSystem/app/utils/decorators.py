@@ -1,8 +1,19 @@
 from functools import wraps
 from flask import request
 from flask_jwt_extended import verify_jwt_in_request, get_jwt_identity
-from .errors import unauthorized, forbidden
+from .errors import bad_request, unauthorized, forbidden
 from app.models import User
+from flask import session, redirect, url_for
+
+def admin_login_required():
+    def decorator(f):
+        @wraps(f)
+        def decorated_function(*args, **kwargs):
+            if 'access_token' not in session:
+                return redirect(url_for('auth.login_page'))
+            return f(*args, **kwargs)
+        return decorated_function
+    return decorator
 
 def admin_required():
     """檢查是否為管理員"""

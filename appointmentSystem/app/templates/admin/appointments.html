@@ -10,8 +10,8 @@
     <!-- Font Awesome -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <!-- 系統樣式 -->
-    <link href="../../../../frontend/src/css/base/common.css" rel="stylesheet">
-    <link href="../../../../frontend/src/css/admin/appointments.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/common.css') }}" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/appointments.css') }}" rel="stylesheet">
 </head>
 <body>
     <div class="appointments-page">
@@ -89,7 +89,7 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
     <!-- 系統功能 -->
-    <script src="../../../../frontend/src/js/admin/appointments.js"></script>
+    <script src="{{ url_for('static', filename='/js/appointments.js') }}"></script>
 </head>
 </body>
 </html>
